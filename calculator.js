@@ -6,11 +6,11 @@ additionPattern = /(\d+)(\+)(\d+)/;
 subtractionPattern = /(\d+)(\-)(\d+)/;
 
 sum = function (a, b) {
- return a + b;
+	return a + b;
 }
 
 difference = function (a, b) {
- return a - b;
+	return a - b;
 }
 
 product = function (a, b) {
@@ -24,7 +24,7 @@ product = function (a, b) {
 }
 
 quotient = function (a, b) {
- return a / b;
+	return a / b;
 }
 
 hasMultiplication = function (string) {
