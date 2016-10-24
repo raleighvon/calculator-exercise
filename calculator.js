@@ -1,17 +1,17 @@
 // calculator.js
 
-multiplicationPattern = /(\d+)(\*)(\d+)/;
-divisionPattern = /(\d+)(\/)(\d+)/;
-additionPattern = /(\d+)(\+)(\d+)/;
-subtractionPattern = /(\d+)(\-)(\d+)/;
+var multiplicationPattern = /(\d+)(\*)(\d+)/,
+divisionPattern = /(\d+)(\/)(\d+)/,
+additionPattern = /(\d+)(\+)(\d+)/,
+subtractionPattern = /(\d+)(\-)(\d+)/,
 
 sum = function (a, b) {
 	return a + b;
-}
+},
 
 difference = function (a, b) {
 	return a - b;
-}
+},
 
 product = function (a, b) {
 	if (isNaN(a)) {
@@ -21,15 +21,15 @@ product = function (a, b) {
 		b = Number(b);
 	}
 	return a * b;
-}
+},
 
 quotient = function (a, b) {
 	return a / b;
-}
+},
 
 hasMultiplication = function (string) {
 	return (string.match(/\*/g) || []).length;
-}
+};
 
 var stdin = process.openStdin();
 console.log('Calculator. Enter equation to calculate: (ie. 1 + 1)')
@@ -44,8 +44,8 @@ stdin.addListener("data", function(input) {
 	if (hasMultiplication(equation)) {
 		// For each match, multiply and replace in the equation
 		for (var i = 0; i <= hasMultiplication(equation); i++ ) {
-			multiplication = equation.match(multiplicationPattern);
-			result = product(multiplication[1], multiplication[3]);
+			var multiplication = equation.match(multiplicationPattern),
+			result = product(multiplication[1], multiplication[3]),
 			equation = equation.replace(multiplicationPattern, result);
 		}
 	}
